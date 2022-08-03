@@ -69,7 +69,7 @@ class LoanPage extends StatelessWidget {
                       onPressed: () => {
                         controller.nextPage(
                           duration: const Duration(
-                            milliseconds: 500,
+                            milliseconds: 300,
                           ),
                           curve: Curves.easeIn,
                         )

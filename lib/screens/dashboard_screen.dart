@@ -1,18 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:loan_money/widgets/button_next.dart';
+import 'package:get/get.dart';
 
-class LoanScreen extends StatelessWidget {
-  const LoanScreen({Key? key}) : super(key: key);
+class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final List<Map<String, dynamic>> dashboard = [
-      {'name': 'Expense', 'icon': Icons.payments},
-      {'name': 'Income', 'icon': Icons.monetization_on_outlined},
-      {'name': 'Loan', 'icon': Icons.business},
-      {'name': 'Chart', 'icon': Icons.pie_chart},
-      {'name': 'Category', 'icon': Icons.storefront_outlined},
-      {'name': 'Reminder', 'icon': Icons.notifications_active},
+      {
+        'name': 'Expense',
+        'route': '/expense',
+        'icon': Icons.payments,
+      },
+      {
+        'name': 'Income',
+        'route': '/expense',
+        'icon': Icons.monetization_on_outlined
+      },
+      {
+        'name': 'Loan',
+        'route': '/expense',
+        'icon': Icons.business,
+      },
+      {
+        'name': 'Chart',
+        'route': '/expense',
+        'icon': Icons.pie_chart,
+      },
+      {
+        'name': 'Category',
+        'route': '/expense',
+        'icon': Icons.storefront_outlined
+      },
+      {
+        'name': 'Reminder',
+        'route': '/expense',
+        'icon': Icons.notifications_active
+      },
     ];
 
     return Scaffold(
@@ -102,34 +126,37 @@ class LoanScreen extends StatelessWidget {
   }
 
   dashboardItem({required item}) {
-    return Container(
-      height: 100,
-      width: 100,
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: const Color(0xFFf4f1fd),
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: const [
-          BoxShadow(
-            color: Colors.grey,
-            blurRadius: 0.2,
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Icon(
-            item['icon'],
-            size: 40,
-            color: Color(0xff3e1ad1),
-          ),
-          Text(
-            item['name'],
-            style: TextStyle(color: Color(0xff3e1ad1), fontSize: 18),
-          )
-        ],
+    return GestureDetector(
+      onTap: () => {Get.toNamed(item['route'])},
+      child: Container(
+        height: 100,
+        width: 100,
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: const Color(0xFFf4f1fd),
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: const [
+            BoxShadow(
+              color: Colors.grey,
+              blurRadius: 0.2,
+            ),
+          ],
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Icon(
+              item['icon'],
+              size: 40,
+              color: Color(0xff3e1ad1),
+            ),
+            Text(
+              item['name'],
+              style: TextStyle(color: Color(0xff3e1ad1), fontSize: 18),
+            )
+          ],
+        ),
       ),
     );
   }

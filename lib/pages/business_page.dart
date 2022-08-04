@@ -72,7 +72,7 @@ class BusinessPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 20, bottom: 20),
                   child: ElevatedButton(
-                    onPressed: () => {Get.toNamed('/loan')},
+                    onPressed: () => {Get.toNamed('/dashboard')},
                     style: ElevatedButton.styleFrom(
                       primary: const Color(0xFF4f51dd),
                       padding: const EdgeInsets.all(18),

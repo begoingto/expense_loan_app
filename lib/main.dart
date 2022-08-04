@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:loan_money/screens/expence_screen.dart';
 import 'package:loan_money/screens/home_screen.dart';
 import 'package:get/get.dart';
-import 'package:loan_money/screens/loan_screen.dart';
+import 'package:loan_money/screens/dashboard_screen.dart';
 
 void main() {
   runApp(const MainScreen());
@@ -26,8 +27,13 @@ class MainScreen extends StatelessWidget {
           // binding: TodoBinding(),
         ),
         GetPage(
-          name: '/loan',
-          page: () => const LoanScreen(),
+          name: '/dashboard',
+          page: () => const DashboardScreen(),
+          // binding: TodoBinding(),
+        ),
+        GetPage(
+          name: '/expense',
+          page: () => const ExpenseScreen(),
           // binding: TodoBinding(),
         ),
       ],
